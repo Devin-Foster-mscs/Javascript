@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <title>Week 4</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    
+    
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+        <header class="pb-3 mb-4 mt-3 pt-3 border-bottom">
+            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+                <svg xmins="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94" role="import"></svg>
+                <span class="fs-4">My calculater example</span>
+            </a>
+        </header>
+        <div class="row">
+            <div class="col-4 bg-primary bg-gradient text-white shadow p-3 mb-5 mt-5 rounded">
+               <form id="formname">
+                <div class="mb-3">
+                    <label for="Person" class="form-label">Person</label>
+                    <input type="text" class="form-control" id="Person" placeholder="Enter your name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="Hourly_Rate" class="form-label">Hourly rate</label>
+                    <input type="text" class="form-control" id="Hourly_Rate" placeholder="Enter your name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="Average_Mph" class="form-label">Average mph</label>
+                    <input type="text" class="form-control" id="Average_Mph" placeholder="Enter your name">
+                  </div>
+                  <div class="form-check form-switch mb-5">
+                    <input class="form-check-input bg-warning" type="checkbox" role="switch" id="rest" value=".25">
+                    <label class="form-check-label" for="rest">Did you rest</label>
+                  </div>
+
+                <button type="button" class="btn btn-warning float-end m-2" id="touch">Calculate</button>
+                <Input type="reset" class="btn btn-secondary float-end m-2" id="reset">
+ 
+             </form> 
+            </div>
+            <div class="col-8 p-5" id="output">
+            </div>
+           
+          </div>
+        <footer class="pt-3 mt-4 text-muted border-top">
+            &copy; 2021
+        </footer>      
+    </div>
+
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+
