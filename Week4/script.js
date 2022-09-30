@@ -1,51 +1,60 @@
 // initialize some constants
 const PERSON_NAME = "Your name here";
-const MPH = "Mph";
-const RESTRATE= "Yes you did";
-const HOURS_WK= .25
+const RATE = 15;
+const HOURS_WK = 20;
+const TAXRATE=.25
 
-let formanme = document.getElementById("Person");
+let formname = document.getElementById("Person");
 let Person =  document.getElementById("formname");
-let Hourly_Rate =  document.getElementById("Average_Mph");
+let Hourly_Rate =  document.getElementById("Hourly_Rate");
 let Hours_per_week =  document.getElementById("Hours_per_week");
-let tax =  document.getElementById("rest");
+let tax =  document.getElementById("tax");
 let output =  document.getElementById("output");
 let reset =  document.getElementById("reset");
 let calculate =  document.getElementById("calculate");
 
 //EVENT LISTENERS -------------
 //Initialize on load
-window.onload = initialize
+window.onload = initialize;
 
-//calculate button
+
 formname.addEventListener("change", function (event) {
-    calculate();
+    calculate_it();
     event.preventDefault();
+});
+
+calculate.addEventListener("click", function (event) {
+    calculate_it();
+    event.preventDefault();
+});
+
+reset.addEventListener("click", function (event) {
+    initialize();
+    output.innerHTML = '<div class="alert alert-warning alert-dismissible"" role="alert">
+                               The form has been reset
+                               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                               </div>';
 });
 
 
 // FUNCTIONS ----------------
 // *******************************************
 function initialize() {
-    Person.value = PERSON_NAME;
-    Hourly_Rate.value = RATE;
-    Hours_per_week.value = HOURS_WK;
+    output.innerHTML = null;
 }
 
 
 // *****************************************************
-function calculate() {
+function calculate_it() {
     
-    let personName = Person.value;
+    let x = ((isNaN(Hourly_Rate.value) || !Hourly_Rate.value) || (isNaN(Hours_per_week.value) || !Hours_per_week.value))
+    ? alert("Please enter a number")
+    : Math.round(Hourly_Rate.value * Hours_per_week.value*100)/100;
     
-    let rate = document.Hourly_Rate.value;
-    let hrsPerWeek = Hours_per_week.value;
-    
-    let x = rate * hrsPerWeek;
-    let annualSalary = x * 52;
+    let annualSalary = Math.round(x * 52 * 100)/100;
 
-    let text = personName +" would make $ "+x+" per week <br>That's $"+annualSalary+"per year!";
-    let tax = (document.getElementById("tax").checked) ? TAXRATE : 0;
-    document.getElementById("output").innerHTML = text +" _ "+ (annualSalary *tax) + "tax.";
+    let text = Person.value +" would make $ "+x+" per week.<br>That's $"+annualSalary+"per year!";
+    let tax_amount = (tax.checked) ? TAXRATE : 0;
+    output.innerHTML = text +" - $"+ Math.round(annualSalary*tax_amount*100)/100 + "tax.";
 
 }
