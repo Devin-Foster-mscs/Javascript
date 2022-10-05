@@ -30,10 +30,7 @@ calculate.addEventListener("click", function (event) {
 
 reset.addEventListener("click", function (event) {
     initialize();
-    output.innerHTML = '<div class="alert alert-warning alert-dismissible"" role="alert">
-                               The form has been reset
-                               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                               </div>';
+    output.innerHTML = '<div class="alert alert-warning alert-dismissible"" role="alert"> The form has been reset <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 });
 
 
@@ -50,7 +47,7 @@ function calculate_it() {
     let x = ((isNaN(Hourly_Rate.value) || !Hourly_Rate.value) || (isNaN(Hours_per_week.value) || !Hours_per_week.value))
     ? alert("Please enter a number")
     : Math.round(Hourly_Rate.value * Hours_per_week.value*100)/100;
-    
+
     let annualSalary = Math.round(x * 52 * 100)/100;
 
     let text = Person.value +" would make $ "+x+" per week.<br>That's $"+annualSalary+"per year!";
