@@ -4,8 +4,8 @@ const RATE = 15;
 const HOURS_WK = 20;
 const TAXRATE=.25
 
-let formname = document.getElementById("Person");
-let Person =  document.getElementById("formname");
+let formname = document.getElementById("formname");
+let Person =  document.getElementById("Person");
 let Hourly_Rate =  document.getElementById("Hourly_Rate");
 let Hours_per_week =  document.getElementById("Hours_per_week");
 let tax =  document.getElementById("tax");
@@ -18,10 +18,10 @@ let calculate =  document.getElementById("calculate");
 window.onload = initialize;
 
 
-formname.addEventListener("change", function (event) {
-    calculate_it();
-    event.preventDefault();
-});
+// formname.addEventListener("change", function (event) {
+//     calculate_it();
+//     event.preventDefault();
+// });
 
 calculate.addEventListener("click", function (event) {
     calculate_it();
