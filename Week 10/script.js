@@ -78,8 +78,9 @@ function Earl(name) {
     this.Earl = name;
     // this.title = null;
     // this.genre = null;
+    let ap = new Apartment();
     this.getName = function () {
-        return this.Earl+" "+"<p>";
+        return this.Earl+" "+ap.getApartment()+"<p>";
     }
 }
 
@@ -96,5 +97,4 @@ output.innerHTML += buildingResident.getName();
 
 
 
-output.innerHTML += buildingResident.getName()
  output.innerHTML += "<p>"//;
