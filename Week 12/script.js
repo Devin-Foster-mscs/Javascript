@@ -51,8 +51,8 @@ function moveBox(e) {
     let deltaY = currentY - startingY;
 
     // 4) finish 2 lines: "[set the position of the target]"
-    e.target.style.top = currentX + deltaX + "px";
-    e.target.style.left = currentY + deltaY + "px";
+    e.target.style.left = boxX + deltaX + "px";
+    e.target.style.top = boxY + deltaY + "px";
 
 }
 
@@ -70,8 +70,8 @@ function tilt(e) {
     let diffBeta,diffGamma;
     for (let i=0; i<tiltyTable.children.length; i++) {
         let elemRect = tiltyTable.children[i].getBoundingClientRect();
-        diffBeta = e.beta - lastBeta;
-        diffGamma = e.gamma - lastGamma;
+        diffBeta = (e.beta - lastBeta) * scale * tiltDirection;
+    diffGamma = (e.gamma - lastGamma) * scale * tiltDirection;
         tiltyTable.children[i].style.top = elemRect.top + diffBeta + "px";
         tiltyTable.children[i].style.left = elemRect.left + diffGamma + "px";
     }
